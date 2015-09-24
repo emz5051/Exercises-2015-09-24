@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
 /*
  * Repeatedly prompt the user to enter a grade.
  * 
@@ -23,6 +26,29 @@
 public class Grades {
   public static void main(String[] args) {
     
+Scanner input = new Scanner(System.in);
+      
+      ArrayList<Integer> grades = new ArrayList<>();
+      
+      Boolean finished = true;
+      
+      while (finished) {
+        System.out.print("Enter a grade: ");
+        double lastGrade = Double.parseDouble(input.next());
+        
+        if (lastGrade > 100 && lastGrade < 0) {
+            System.out.println("Grade must be between 0 and 100.");
+        }
+        else if (lastGrade == -1) {
+            finished = false;
+            
+            int numGrades = grades.size();
+            
+            System.out.print("");
+        }
+        
+        
+      }
   }
 
 }
