@@ -26,9 +26,9 @@ import java.util.Scanner;
 public class Grades {
   public static void main(String[] args) {
     
-Scanner input = new Scanner(System.in);
+    Scanner input = new Scanner(System.in);
       
-      ArrayList<Integer> grades = new ArrayList<>();
+    ArrayList<Double> grades = new ArrayList<>();
       
       Boolean finished = true;
       
@@ -36,15 +36,25 @@ Scanner input = new Scanner(System.in);
         System.out.print("Enter a grade: ");
         double lastGrade = Double.parseDouble(input.next());
         
-        if (lastGrade > 100 && lastGrade < 0) {
+        if (lastGrade > 100 || lastGrade < 0 && lastGrade != -1) {
             System.out.println("Grade must be between 0 and 100.");
         }
         else if (lastGrade == -1) {
             finished = false;
             
             int numGrades = grades.size();
+            double sum = 0;
             
-            System.out.print("");
+            for (double grade : grades) {
+                sum += grade;
+            }
+            
+            double average = sum / grades.size();
+            
+            System.out.print("You entered " + numGrades + "grades. Your average is " + average);
+        }
+        else {
+            grades.add(lastGrade);
         }
         
         
